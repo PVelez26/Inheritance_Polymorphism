@@ -1,3 +1,4 @@
+//public final Class getClass()
 
 public class Part {
 	
@@ -26,60 +27,94 @@ public class Part {
 		 
 		// Part (ID : int, desc : String, sellPrice : double)
 		public Part(int partID, String partDescription, double partSellPrice) {
-			if (partDescription == null)
-			{
-				System.out.print(DEFAULT_DESCRIPTION);
-				
-				
+			
+			// Do not update the private variables if the new values are not valid.
+			// COME BACK TO THIS PART!!!
+			
+			// The part ID must be greater than or equal to zero
+			
+			if (partID < 0) {
+				partID = null;
+				System.out.print("Invalid value");
+			// Since the part number was invalid (negative number), let's reprompt the menu by calling the menu function / method again
+			// Menu(); 	
+		    // first we need to make sure were not storing negative value for partID
+		    // if the value is negative for partID, reprompt menu
 			}
+			//
+			// 2D The sell price must be greater than or equal to zero. 
+			if (partSellPrice < 0) {
+				partSellprice = DEFAULT_SELL_PRICE;
+				System.out.print("Invalid value");
+			}
+			
+			// The part description cannot be null and must have a length greater than zero.
+			if (partDescription == null || partDescription.length() < 0)
+			{ 
+				System.out.print("Invalid Value");
+				System.out.print(DEFAULT_DESCRIPTION);		
+				// placeholder for calling the menu again
+			}
+			
 			
 		
-			//Edit the part selling price to make sure it is greater than or equal to zero. 
-			// If the part selling price is invalid use the default sell price (DEFAULT_SELL_PRICE).
-			
-			if ( partSellprice < 0) {
-				partSellprice = DEFAULT_SELL_PRICE;
-			}
-			
 			//The constructor with one parameter for the part ID must use 'this' to call the overloaded constructor
 			//(the one with three parameters). Use the default constants for description and sell price for the
 			//missing values. Implement the DRY principle by calling the set methods from 
 			//the overloaded constructor (the one with three parameters).
-			
-			
-			
-			
-		}
-
-		public void setPartID(int partID) {
-			this.partID = partID;
-		}
-
-		public void setPartDescription(String partDescription) {
-			this.partDescription = partDescription;
-		}
-
-		public void setPartSellPrice(double partSellPrice) {
-			this.partSellPrice = partSellPrice;
-		}
-		
+	
+		} // Part class loop closed 
 		
 		//Create a toString method that will return a String object that contains the value of each data member. 
 		//Use the @Override annotation. Display the class of the object using the getClass method.
 		//Call the toString method in the superclass to display the Part data.
 		
+		
+///// 2.D GETTERS AND SETTERS //////////////////////////////////////////////////////////////////////////////////////		
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		private int getPartID() {
+			return partID;
+		}
+
+		private String getPartDescription() {
+			return partDescription;
+		}
+
+		private double getPartSellPrice() {
+			return partSellPrice;
+		}
+
+		private static String getDefaultDescription() {
+			return DEFAULT_DESCRIPTION;
+		}
+
+		private static double getDefaultSellPrice() {
+			return DEFAULT_SELL_PRICE;
+		}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		
+		@Override
 		public String toString() {
 			return "Part ID: " + partID + this.partID + "Part Description: " + this.partDescription + "Part Selling Price: "
-					+ this.partSellPrice;
+					+ this.partSellPrice + "\n Class of the object";
 		}
 			
-			@Override
+			/* @Override
 			  public String toString() {
-			    return "["+getPart()+"]";
-			    
-			    
+			  return "["+getPart()+"]";
+			    */
+			    // COME BACK AND DO .GETCLASS
 			
 		}
+
+// STEP 2.D -- Create get and set methods for each of the 3 private data variables. 
+// The part ID must be greater than or equal to zero. 
+// The sell price must be greater than or equal to zero. The part description cannot be null and 
+// must have a length greater than zero. Do not update the private variables if the new values are not valid.
 			
 		}
 ////////////////////////////////////////////////////////////////////////////////////////
